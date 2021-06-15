@@ -1,0 +1,32 @@
+{% block body %}
+  <h4 class="display-3">Add surgery</h4>
+  <form action="{{url_for('DOCPAT')}}" method="POST">
+      <div class="form-group">
+        <label for="un" class="form-label">Doctor ID:</label>
+        <input type="int" class="form-control" id="un" name="username" >
+      </div>
+      <button type="submit" class="btn btn-primary">search</button>
+  </form>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">paient_name</th>
+            <th scope="col">patient_id</th>
+            <th scope="col">Blood Type</th>
+            <th scope="col">Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            {% for x in esm %}
+            <tr>
+              <td>{{x.0}}</td>
+              <td>{{x.1}}</td>
+              <td>{{x.2}}</td>
+              <td>{{x.3}}</td>
+            </tr>
+            {% endfor %}
+          </tr>
+        </tbody>
+      </table>
+  {% endblock %} 

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>PATIENTS</title>
+
+   <!-- Bootstrap core CSS -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+   <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'>
+   <link href='https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.6.95/css/materialdesignicons.css'>
+   <link href="/static/bootstrap.min.css" rel="stylesheet">
+   <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" crossorigin="anonymous">-->
+   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+  <!-- Custom styles for this template -->
+  <link href="/static/heroic-features.css" rel="stylesheet">
+</head>
+
+<body style="background-image: url('/static/medical-background-dark.jpg'); background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: cover;">
+  
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top ">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <!--Home-->
+            <a class="nav-link" href="http://127.0.0.1:5000/">Home &#127968; </a>
+          </li>
+          <!--Contact-->
+          <li class="nav-item">
+            <a class="nav-link" href="#"><button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#comm" aria-expanded="false" aria-controls="collapseExample">Contact &#9743;</button></a>
+            <div class="collapse" id="comm">
+              <div class="card card-body">
+                <table>
+                  <tr>
+                    {%for rh in no.header%}
+                    <th>{{rh}}</th>
+                    {%endfor%}
+                  </tr>
+                  {%for r in no.rec%}
+                  <tr>
+                    {%for l in r%}
+                    <td>{{l}}</td>
+                    {%endfor%}
+                  </tr>
+                  {%endfor%}
+                  </table>
+                
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+      
+      
+
+   
+  <!-- Page Content -->
+  <div class="container">
+
+    <!-- Jumbotron Header -->
+    <header class="jumbotron my-4">
+      <h1 class="display-3">Welcome Patient {{info.0.1}}</h1>
+      <p class="lead">Your account can show you any updates regarding your operation schedule and is made for you to navigate through your uploaded scans and medicine.</p>
+      <!--<a href="#" class="btn btn-primary btn-lg">Call to action!</a>-->
+    </header>
+
+    <!-- Page Features -->
+    <div class="row text-center">
+
+    <!--Operation Plan Card-->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100">
+          <img class="card-img-top" src="https://ichef.bbci.co.uk/news/976/cpsprodpb/1298E/production/_110347167_gettyimages-637947976.jpg" alt="" width="500" height="200">
+          <div class="card-body">
+            <h4 class="card-title">Operation Plan</h4>
+            <p class="card-text">Check out the operation type and schedule that includes date and time</p>
+          </div>
+
+          <div class="card-footer" >
+            <p>
+              <a class="btn btn-primary" data-toggle="collapse" href="#Opinfo" role="button" aria-expanded="false" aria-controls="collapseExample">
+                Find Out
+              </a>
+            </p>  
+          </div>
+        </div>
+      </div>
+
+      <!--Card 1: Operation Collapse-->
+      <div class="collapse" id="Opinfo" style="margin-bottom:10px;" >
+        <div class="card card-body" >
+          <table>
+            <tr>
+              {%for rh in dd.header%}
+              <th>{{rh}}</th>
+              {%endfor%}
+            </tr>
+            {%for r in dd.rec%}
+            <tr>
+              {%for l in r%}
+              <td>{{l}}</td>
+              {%endfor%}
+            </tr>
+            {%endfor%}
+            </table>
+        </div>
+      </div>
+      
+      <!--Prescription/Medicine Card-->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100">
+          <img class="card-img-top" src="https://securecdn.pymnts.com/wp-content/uploads/2019/01/Click-And-Collect-Pharmacy.jpg" alt="" width="500" height="200">
+          <div class="card-body">
+            <h4 class="card-title">Prescription</h4>
+            <p class="card-text">Keep track of all prescriptions</p>
+          </div>
+          <div class="card-footer">
+              <a class="btn btn-primary" data-toggle="collapse" href="#Med" role="button" aria-expanded="false" aria-controls="collapseExample">
+                Find Out
+              </a>
+            <!--Card 2: Medicine Collapse-->
+            <div class="collapse" id="Med" >
+              <div class="card card-body" >
+                <div class="mb-3 row" style="align-items: center;">
+                  <div class="col-sm-10">
+                    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value=" {{info.0.11}} " >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+ <!--Diagonsis Card-->
+ <div class="col-lg-3 col-md-6 mb-4">
+  <div class="card h-100">
+    <img class="card-img-top" src="https://creakyjoints.org/wp-content/uploads/2018/11/0918_RA-Tests.jpg" alt="" width="500" height="200">
+    <div class="card-body">
+      <h4 class="card-title">Diagonsis</h4>
+      <p class="card-text">Check your diagonsis here</p>
+    </div>
+    <div class="card-footer">
+      <a class="btn btn-primary" data-toggle="collapse" href="#go" role="button" aria-expanded="false" aria-controls="collapseExample">
+        Find Out
+      </a>
+    <!--Card 3: Diagonsis Collapse-->
+    <div class="collapse" id="go" >
+      <div class="card card-body" >
+        <div class="mb-3 row" style="align-items: center;">
+          <div class="col-sm-10">
+            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value=" {{info.0.7}} " >
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+      
+      <!--Patient Scans Card-->
+       <div class="col-lg-3 col-md-6 mb-4">
+         <div class="card h-100">
+           <img class="card-img-top" src="https://www.gmjournal.co.uk/media/1704/mri-brain-scan.jpg" alt="" width="500" height="200">
+           <div class="card-body">
+             <h4 class="card-title">Patient Scans</h4>
+             <p class="card-text">Upload your scans (X-ray, CT,ultrasound etc..) for your doctor to view them</p>
+           </div>
+           <div class="card-footer">
+            <a class="btn btn-primary" href="upload.html" >
+              Find Out
+            </a>
+           </div>
+         </div>
+       </div>
+ <!--Complaints Card-->
+ <div class="col-lg-3 col-md-6 mb-4">
+  <div class="card h-100">
+    <img class="card-img-top" src="https://s17026.pcdn.co/wp-content/uploads/sites/9/2017/08/Complaints-25817.jpeg" alt="" width="500" height="200">
+    <div class="card-body">
+      <h4 class="card-title">Complaints</h4>
+      <p class="card-text">If you have any concerns or complaints, please dont hesitate to voice them here</p>
+    </div>
+    <div class="card-footer">
+     <a class="btn btn-primary" href="{{url_for('AddComplaints')}}" >
+       Find Out
+     </a>
+    </div>
+  </div>
+</div>
+       
+      <!--Patient Profile Card-->
+       <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100">
+          <img class="card-img-top" src="https://www.worldfuturecouncil.org/wp-content/uploads/2020/06/blank-profile-picture-973460_1280-1.png" alt="" width="500" height="200">
+          <div class="card-body">
+            <h4 class="card-title">Patient Profile</h4>
+            <p class="card-text">View your Profile</p>
+          </div>
+          <div class="card-footer" >
+            <a class="btn btn-primary" data-toggle="collapse" href="#Prof" role="button" aria-expanded="false" aria-controls="collapseExample">
+              Find Out
+            </a>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Patient Profile collapse-->
+      <div class="collapse" id="Prof" >
+        <div class="card card-body" >
+          <div class="mb-3 row" style="align-items: center;">
+            <label for="staticEmail" class="col-sm-2 col-form-label" style="color:#2196c4">Name</label>
+            <div class="col-sm-10">
+              <input type="text" readonly class="form-control-plaintext" id="staticEmail" value=" {{info.0.1}} " >
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="staticEmail" class="col-sm-2 col-form-label " style="color:#2196c4" >ID</label>
+            <div class="col-sm-10">
+              <input type="text" readonly class="form-control-plaintext" id="staticEmail" value=" {{info.0.0}} ">
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="staticEmail" class="col-sm-2 col-form-label " style="color:#2196c4" >Gender</label>
+            <div class="col-sm-10">
+              <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{info.0.2}} ">
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="staticEmail" class="col-sm-2 col-form-label " style="color:#2196c4" >Age</label>
+            <div class="col-sm-10">
+              <input type="text" readonly class="form-control-plaintext" id="staticEmail" style="text-decoration: solid; text-size-adjust: 10px;" value="{{info.0.3}} ">
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="staticEmail" class="col-sm-2 col-form-label " style="color:#2196c4" >Blood Type</label>
+            <div class="col-sm-10">
+              <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{info.0.4}} ">
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="staticEmail" class="col-sm-2 col-form-label " style="color:#2196c4" >Phone</label>
+            <div class="col-sm-10">
+              <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{info.0.5}} ">
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="staticEmail" class="col-sm-2 col-form-label " style="color:#2196c4" >Email</label>
+            <div class="col-sm-10">
+              <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{info.0.6}} ">
+            </div>
+          </div>
+
+        </div>
+      </div>
+     
+       
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

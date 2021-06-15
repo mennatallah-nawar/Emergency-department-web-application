@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.6.95/css/materialdesignicons.css'>
+
+    <link href="/static/bootstrap.min.css" rel="stylesheet">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
+
+  <!-- Custom styles for this template -->
+    <link href="/static/heroic-features.css" rel="stylesheet">
+    <title>Admin</title>
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  </head>
+
+
+  <body style="background-image: url('/static/medical-background-dark.jpg'); background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;">
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+<!-- navigation bar done by ola -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Operation Rooms Department</a>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="{{url_for('index')}}">homepage</a>
+                </li>
+                <li class="nav-item">
+                  <a class="btn btn-primary" aria-current="page" href="{{url_for('AdminProfile')}}">Edit Profile</a>
+                </li>
+                <!-- <li class="nav-item">
+                    Button trigger modal 
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                      Profile
+                     </button>
+                      Modal 
+                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                       <div class="modal-dialog">
+                         <div class="modal-content">
+                           <div class="modal-header">
+                             <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                           </div>
+                            <div class="modal-body" >
+                             
+
+
+
+                              <div class="mb-3 row" >
+                                <label for="staticEmail" class="col-sm-2 col-form-label" style="color:#2196c4">name</label>
+                                <div class="col-sm-10">
+                                  <input type="text" readonly class="form-control-plaintext" id="staticEmail" value=" info.0 " >
+                                </div>
+                              </div>
+                              <div class="mb-3 row">
+                                <label for="staticEmail" class="col-sm-2 col-form-label label-primary" style="color:#2196c4" >Your ID</label>
+                                <div class="col-sm-10">
+                                  <input type="text" readonly class="form-control-plaintext" id="staticEmail" value=" info.2 ">
+                                </div>
+                              </div>
+                              <div class="mb-3 row">
+                                <label for="staticEmail" class="col-sm-2 col-form-label label-primary" style="color:#2196c4" >Email</label>
+                                <div class="col-sm-10">
+                                  <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="info.1 ">
+                                </div>
+                              </div>
+                              <div class="mb-3 row">
+                                <label for="staticEmail" class="col-sm-2 col-form-label label-primary" style="color:#2196c4" >phone number</label>
+                                <div class="col-sm-10">
+                                  <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="info.3 ">
+                                </div>
+                              </div>
+                              <div class="mb-3 row">
+                                <label for="staticEmail" class="col-sm-2 col-form-label label-primary" style="color:#2196c4" >Password</label>
+                                <div class="col-sm-10">
+                                  <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="info.4 ">
+                                </div>
+                              </div>
+
+
+
+
+
+
+                           </div>
+                           <div class="modal-footer">
+                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                               Edit Profile
+                              </button>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                </li> -->
+            </ul>
+        </div>
+    </nav>
+    <!-- modal for edit profile     -->
+    <!-- <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="{{url_for('admin2')}}" method="POST">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Name</label>
+                      <input name="name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  required>
+                    </div>
+                    <div class="form-group">
+                      <label for="deptinput">email</label>
+                      <input name= "email" type="text" class="form-control" id="deptinput" aria-describedby="emailHelp"  required>
+                    </div>
+                    <div class="form-group">
+                      <label for="idinput">password</label>
+                      <input name="password" type="number" class="form-control" id="idinput"  required>
+                    </div>
+                    <div class="form-group">
+                      <label for="idinput">phone number</label>
+                      <input name="phone" type="number" class="form-control" id="idinput" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="idinput">write your id to proceed but it will not change</label>
+                      <input name="ID" type="number" class="form-control" id="idinput" required>
+                    </div>
+              
+                    
+                  
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">save changes</button>
+            </div>
+          </form>
+          </div>
+        </div>
+    </div> -->
+    <div class="container">
+
+        <!-- Jumbotron Header -->
+        <header class="jumbotron my-4">
+          <h1 class="display-3">Hello Admin {{info.0.0}}
+          </h1>
+          <p class="lead">Here in your account you can do many things as  searching about a certain docror or a patient ,also you can see the sechedual of the surgeries , Add a surgery and see the stastistics , and you of course can see the complaints of the doctors and the patients also their requests</p>
+          <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#ShowProfile" aria-expanded="false" aria-controls="collapseExample">
+            Profile
+          </button>
+      
+        </header>
+
+        <div class="collapse" id="ShowProfile" style="margin-bottom: 10px;">
+          <div class="card card-body">
+            <div class="mb-3 row" style="align-items: center;">
+              <label for="staticEmail" class="col-sm-2 col-form-label" style="color:#2196c4">name</label>
+              <div class="col-sm-10">
+                <input type="text" readonly class="form-control-plaintext" id="staticEmail" value=" {{info.0.0}} " >
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="staticEmail" class="col-sm-2 col-form-label " style="color:#2196c4" >Your ID</label>
+              <div class="col-sm-10">
+                <input type="text" readonly class="form-control-plaintext" id="staticEmail" value=" {{info.0.2}} ">
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="staticEmail" class="col-sm-2 col-form-label " style="color:#2196c4" >Email</label>
+              <div class="col-sm-10">
+                <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{info.0.1}} ">
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="staticEmail" class="col-sm-2 col-form-label " style="color:#2196c4" >phone number</label>
+              <div class="col-sm-10">
+                <input type="text" readonly class="form-control-plaintext" id="staticEmail" style="text-decoration: solid; text-size-adjust: 10px;" value="{{info.0.3}} ">
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="staticEmail" class="col-sm-2 col-form-label " style="color:#2196c4" >Password</label>
+              <div class="col-sm-10">
+                <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{info.0.4}} ">
+              </div>
+            </div>
+            <a class="btn btn-primary" aria-current="page" href="{{url_for('AdminProfile')}}">Edit Profile</a>
+          
+          </div>
+
+        </div>
+        <!-- Page Features -->
+    <div class="row text-center">
+         <!-- card 1 -->
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="card h-100">
+            <img class="card-img-top" src="/static/search button 1.jpg" alt="">
+            <div class="card-body">
+              <h4 class="card-title"><strong>Search</strong> </h4>
+              <p class="card-text">Here you can search about any doctor our patient and get his/her information</p>
+            </div>
+            <div class="card-footer">
+                <div class="btn-group">
+                  <a href="{{url_for('searchDoctor')}}" class="btn btn-primary active">Doctor</a>
+                  <a href="{{url_for('searchPatient')}}" class="btn btn-primary ">Patient</a>
+                </div>
+            </div>
+          </div>
+        </div>
+           <!-- card 2 -->
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="card h-100">
+            <img class="card-img-top" src="/static/Scheduale 1.jpg" alt="">
+            <div class="card-body">
+              <h4 class="card-title"><strong>Surgeries Scheduale</strong></h4>
+              <p class="card-text">Take a look on the Scheduale of the oprations that will help you to be updated</p>
+            </div>
+            <div class="card-footer">
+              <a class="btn btn-primary" data-bs-toggle="collapse" href="#Showsurgeries" role="button" aria-expanded="false" aria-controls="collapseExample">
+                Show Surgeries
+              </a>
+            </div>
+          </div>
+        </div>
+           <!-- card 3 -->
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="card h-100">
+            <img class="card-img-top" src="/static/Add Surgery 1.jpg" alt="">
+            <div class="card-body">
+              <h4 class="card-title"><strong>Add Surgeries</strong></h4>
+              <p class="card-text">Here you can put the information like the place and time also the doctor and the patient Id's for the upcoming surgeries  </p>
+            </div>
+            <div class="card-footer">
+              <a href="{{url_for('AddSurgery')}}" class="btn btn-primary ">Add Surgery</a>
+            </div>
+          </div>
+        </div>
+           <!-- card 4 -->
+        <!-- <div class="col-lg-3 col-md-6 mb-4">
+          <div class="card h-100">
+            <img class="card-img-top" src="/static/Statistics 1.jpg" alt="">
+            <div class="card-body">
+              <h4 class="card-title">Card title</h4>
+              
+              
+              <p class="card-text"> </p>
+            </div>
+            <div class="card-footer">
+              <a class="btn btn-primary" data-bs-toggle="collapse" href="#statistics" role="button" aria-expanded="false" aria-controls="collapseExample">
+                Link with href
+              </a>
+            </div>
+          </div>
+        </div> -->
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="card h-100">
+            <img class="card-img-top" src="/static/Complain 1.jpg" alt="">
+            <div class="card-body">
+              <h4 class="card-title"><strong>Requests And Complatients</strong></h4>
+              <p class="card-text">always check the requests and complaints of the doctors and the patients because that will help our department</p>
+            </div>
+            <div class="card-footer">
+              <div class="btn-group">
+              <a class="btn btn-primary active" data-bs-toggle="collapse" href="#complaints" role="button" aria-expanded="false" aria-controls="collapseExample">Complaints</a>
+              <a class="btn btn-primary" data-bs-toggle="collapse" href="#requests" role="button" aria-expanded="false" aria-controls="collapseExample">Requests</a>
+            </div>
+            </div>
+          </div>
+        </div>
+    
+    <!-- under cards card 2 -->
+
+    <div class="collapse" id="Showsurgeries" style="margin-bottom:10px;">
+        <div class="card card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+              {% for r in data.header  %}
+                <th> {{ r }} </th>
+              {% endfor %} 
+              </tr>
+            </thead>
+            <tbody>
+              {% for r in data.rec %}
+               <tr>
+                  <th> {{ loop.index }} </th>
+                  {% for l in r %}
+                    <td> {{ l }} </td>
+                  {% endfor %}
+               </tr>
+              {% endfor %}
+              </tbody>
+          </table>        
+        </div>
+      </div>
+      
+               <!-- card 5 -->
+      <!-- <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100">
+          <img class="card-img-top" src="/static/Request 1.jpg" alt="">
+          <div class="card-body">
+            <h4 class="card-title">Card title</h4>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
+          </div>
+          <div class="card-footer">
+            <a class="btn btn-primary" data-bs-toggle="collapse" href="#requests" role="button" aria-expanded="false" aria-controls="collapseExample">
+              Link with href
+            </a>
+          </div>
+        </div>
+      </div> -->
+         <!-- card 6 -->
+      
+                <!-- under cards card 4 requests -->
+
+      <div class="collapse" id="requests" style="margin-bottom:10px;">
+        <div class="card card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+              {% for r in dbRequests.header  %}
+                <th> {{ r }} </th>
+              {% endfor %} 
+              </tr>
+            </thead>
+            <tbody>
+              {% for r in dbRequests.rec %}
+               <tr>
+                  <th> {{ loop.index }} </th>
+                  {% for l in r %}
+                    <td> {{ l }} </td>
+                  {% endfor %}
+               </tr>
+              {% endfor %}
+              </tbody>
+          </table>       
+        </div>
+      </div>
+                <!-- under cards card 4 complaints -->
+
+      <div class="collapse" id="complaints" style="margin-bottom:10px;">
+        <div class="card card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+              {% for r in dbComplaints.header  %}
+                <th> {{ r }} </th>
+              {% endfor %} 
+              </tr>
+            </thead>
+            <tbody>
+              {% for r in dbComplaints.rec %}
+               <tr>
+                  <th> {{ loop.index }} </th>
+                  {% for l in r %}
+                    <td> {{ l }} </td>
+                  {% endfor %}
+               </tr>
+              {% endfor %}
+              </tbody>
+          </table>        
+        </div>
+      </div>
+    </div>
+</div>
+
+
+<!-- for statistics  -->
+<header class="jumbotron my-4">
+  <h4 class="display-5">Statistics about the Dapartment</h4>
+  <div class="card-group">
+    <div class="card">
+      <div class="card-body" style="align-self: center;">
+        <h5 class="card-title"><strong>Number of complaints and Requests</strong></h5>
+      </div>
+      <div class="container">
+      <canvas id="myChart" width="420" height="210"></canvas>
+      </div>
+    </div>
+    
+    <div class="card">
+      <div class="card-body" style="align-self: center;">
+        <h5 class="card-title"><strong>Time Line of the Surgeries</strong></h5>
+        <p class="card-text">
+        </p>
+      </div>
+      <div class="container">
+      <canvas id="myChart2" width="300" height="250"></canvas>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body" style="align-self: center;">
+        <h5 class="card-title"><strong>Number of doctors and patients</strong></h5>
+      </div>
+      <div class="container">
+      <canvas id="myChart3" width="420" height="210"></canvas>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body" style="align-self: center;">
+        <h5 class="card-title"><strong>statistics of Patients Blood Types</strong></h5>
+      </div>
+      <div class="container">
+      <canvas id="myChart4" width="300" height="250"></canvas>
+      </div>
+    </div>
+  </div>
+
+</header>
+
+{% if RecComplabels %}
+<script>
+  Chart.defaults.global.responsive = false;
+  
+  var chartData = {
+  labels : [{% for item in RecComplabels %}
+           "{{item}}",
+          {% endfor %}],
+  datasets : [{
+    
+    fill: true,
+    lineTension: 0.1,
+    backgroundColor: "rgba(75,192,192,0.4)",
+    borderColor: "rgba(75,192,192,1)",
+    borderCapStyle: 'butt',
+    borderDash: [],
+    borderDashOffset: 0.0,
+    borderJoinStyle: 'miter',
+    pointBorderColor: "rgba(75,192,192,1)",
+    pointBackgroundColor: "#fff",
+    pointBorderWidth: 1,
+    pointHoverRadius: 5,
+    pointHoverBackgroundColor: "rgba(75,192,192,1)",
+    pointHoverBorderColor: "rgba(220,220,220,1)",
+    pointHoverBorderWidth: 2,
+    pointRadius: 1,
+    pointHitRadius: 10,
+    data : [{% for item in RequestsComplaints %}
+              {{item}},
+            {% endfor %}],
+    spanGaps: false
+  }]
+  }
+  
+  var ctx = document.getElementById("myChart").getContext("2d");
+  
+  
+  var myChart = new Chart(ctx, {
+  type: 'pie',
+  data: chartData,
+  });
+  
+  Chart.defaults.global.responsive = false;
+  
+  var chartData2 = {
+  labels : [{% for item in SurguriesDoneLabels %}
+           "{{item}}",
+          {% endfor %}],
+  datasets : [{
+  
+  label: '{{ legend }}',
+  fill: true,
+  lineTension: 0.1,
+  backgroundColor: "rgba(75,192,192,0.4)",
+  borderColor: "rgba(75,192,192,1)",
+  borderCapStyle: 'butt',
+  borderDash: [],
+  borderDashOffset: 0.0,
+  borderJoinStyle: 'miter',
+  pointBorderColor: "rgba(75,192,192,1)",
+  pointBackgroundColor: "#fff",
+  pointBorderWidth: 1,
+  pointHoverRadius: 5,
+  pointHoverBackgroundColor: "rgba(75,192,192,1)",
+  pointHoverBorderColor: "rgba(220,220,220,1)",
+  pointHoverBorderWidth: 2,
+  pointRadius: 1,
+  pointHitRadius: 10,
+    data : [{% for item in SurguriesDoneValues %}
+              {{item}},
+            {% endfor %}],
+    spanGaps: false
+   }]
+  }
+  
+  
+  var ctx2 = document.getElementById("myChart2").getContext("2d");
+  
+  
+  
+  var myChart2 = new Chart(ctx2, {
+  type: 'line',
+  data: chartData2,
+  options: {
+    scales: {
+        yAxes: [{
+            ticks: {
+                beginAtZero: true
+            }
+        }]
+    }
+} 
+  });
+
+
+
+  Chart.defaults.global.responsive = false;
+  
+  var chartData3 = {
+  labels : [{% for item in patdoclabels %}
+           "{{item}}",
+          {% endfor %}],
+  datasets : [{
+  
+  fill: true,
+  lineTension: 0.1,
+  backgroundColor: "rgba(75,192,192,0.4)",
+  borderColor: "rgba(75,192,192,1)",
+  borderCapStyle: 'butt',
+  borderDash: [],
+  borderDashOffset: 0.0,
+  borderJoinStyle: 'miter',
+  pointBorderColor: "rgba(75,192,192,1)",
+  pointBackgroundColor: "#fff",
+  pointBorderWidth: 1,
+  pointHoverRadius: 5,
+  pointHoverBackgroundColor: "rgba(75,192,192,1)",
+  pointHoverBorderColor: "rgba(220,220,220,1)",
+  pointHoverBorderWidth: 2,
+  pointRadius: 1,
+  pointHitRadius: 10,
+    data : [{% for item in patdoc %}
+              {{item}},
+            {% endfor %}],
+    spanGaps: false
+   }]
+  }
+  
+  
+  var ctx2 = document.getElementById("myChart3").getContext("2d");
+  
+  
+  
+  var myChart3 = new Chart(ctx2, {
+  type: 'pie',
+  data: chartData3,
+  });
+
+
+  Chart.defaults.global.responsive = false;
+  
+  var chartData4 = {
+  labels : [{% for item in BloodTypeLabels %}
+           "{{item}}",
+          {% endfor %}],
+  datasets : [{
+  
+  fill: true,
+  label: 'Blood Types',
+  lineTension: 0.1,
+  backgroundColor: "rgba(75,192,192,0.4)",
+  borderColor: "rgba(75,192,192,1)",
+  borderCapStyle: 'butt',
+  borderDash: [],
+  borderDashOffset: 0.0,
+  borderJoinStyle: 'miter',
+  pointBorderColor: "rgba(75,192,192,1)",
+  pointBackgroundColor: "#fff",
+  pointBorderWidth: 1,
+  pointHoverRadius: 5,
+  pointHoverBackgroundColor: "rgba(75,192,192,1)",
+  pointHoverBorderColor: "rgba(220,220,220,1)",
+  pointHoverBorderWidth: 2,
+  pointRadius: 1,
+  pointHitRadius: 10,
+    data : [{% for item in BloodTypeValues %}
+              {{item}},
+            {% endfor %}],
+    spanGaps: false
+   }]
+  }
+  
+  
+  var ctx2 = document.getElementById("myChart4").getContext("2d");
+  
+  
+  
+  var myChart4 = new Chart(ctx2, {
+  type: 'bar',
+  data: chartData4,
+  options: {
+    scales: {
+        yAxes: [{
+            ticks: {
+                beginAtZero: true
+            }
+        }]
+    }
+}
+  });
+  </script>
+  {% endif %}
+    <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">we are proud that you are a part of our department</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  
+
+  </body>
+</html>
+

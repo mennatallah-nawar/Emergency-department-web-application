@@ -1,0 +1,20 @@
+{% extends "DOCPAT.html" %}
+{% block body %}
+<h4 class="display-3">Add Medicine for your Patient</h4>
+
+<form action="{{url_for('AddMedicine')}}" method="POST">
+
+    <div class="form-group">
+        <label for="exampleInputEmail1">Write your medicine here</label>
+        <input name="medicine" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  required>
+      </div>
+    <div class="form-group">
+      <label for="idinput">write your patient's ID </label>
+      <input name="ID" type="number" class="form-control" id="idinput" required>
+    </div>
+    <button type="submit" class="btn btn-primary">save changes</button>
+
+</form>
+
+  
+{% endblock %}

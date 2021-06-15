@@ -1,0 +1,46 @@
+{% extends "searchDoctor.html" %}
+{% block body %}
+<h4 class="display-3">Add surgery</h4>
+<form action="{{url_for('AddSurgery')}}" method="POST">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Room Number</label>
+      <input name="roomNo" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+    </div>
+    <div class="form-group">
+      <label for="deptinput">ID of the Doctor operating the surgery</label>
+      <input name= "docId" type="number" class="form-control" id="deptinput" aria-describedby="emailHelp" required>
+    </div>
+    <div class="form-group">
+      <label for="idinput">ID of the patient</label>
+      <input name="patId" type="number" class="form-control" id="idinput"  required>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Date of the surgery</label>
+        <input name="date" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required >
+        <small id="emailHelp" class="form-text text-muted">please enter in YYYY-MM-DD format</small>
+      </div>
+      <div class="form-group">
+        <label for="idinput">start time</label>
+        <input name="st" type="text" class="form-control" id="idinput" required>
+        <small id="emailHelp" class="form-text text-muted">please enter in hh-mm-ss format</small>
+      </div>
+      <div class="form-group">
+        <label for="idinput">end time</label>
+        <input name="end_time" type="text" class="form-control" id="idinput" required>
+        <small id="emailHelp" class="form-text text-muted">please enter in hh-mm-ss format</small>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  {% if message%}
+      <div class="alert alert-success" role="alert">
+        {{ message }}
+      </div>
+    {% endif %}
+
+    {% if error%}
+      <div class="alert alert-danger" role="alert">
+        {{ error }}
+        </div>
+    {% endif %}
+{% endblock %}

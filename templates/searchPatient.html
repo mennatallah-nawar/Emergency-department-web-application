@@ -1,0 +1,56 @@
+{% extends "searchDoctor.html" %}
+{% block body %}
+<h4 class="display-3">Search for a Patient</h4>
+<form class="d-flex" action="{{url_for('searchPatient')}}" method="POST">
+    <input class="form-control me-2" type="text" name="searchPat" placeholder="Search" aria-label="Search for a patient">
+    <button class="btn btn-outline-primary" type="submit">Search</button>
+  </form>
+<!-- {% if not result %}
+<div class="alert alert-danger" role="alert">No doctor found with that name</div>
+{% endif %} -->
+{% if result %}
+<div class="mb-3 row" >
+  <label for="staticEmail" class="col-sm-2 col-form-label" style="color:#2196c4">name</label>
+  <div class="col-sm-10">
+    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value=" {{result.0.0}} " >
+  </div>
+</div>
+<div class="mb-3 row">
+  <label for="staticEmail" class="col-sm-2 col-form-label label-primary" style="color:#2196c4" >patient's ID</label>
+  <div class="col-sm-10">
+    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value=" {{result.0.1}} ">
+  </div>
+</div>
+<div class="mb-3 row">
+  <label for="staticEmail" class="col-sm-2 col-form-label label-primary" style="color:#2196c4" >Age</label>
+  <div class="col-sm-10">
+    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value=" {{result.0.2}} ">
+  </div>
+</div>
+<div class="mb-3 row">
+  <label for="staticEmail" class="col-sm-2 col-form-label label-primary" style="color:#2196c4" >Gender</label>
+  <div class="col-sm-10">
+    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value=" {{result.0.3}} ">
+  </div>
+</div>
+<div class="mb-3 row">
+  <label for="staticEmail" class="col-sm-2 col-form-label label-primary" style="color:#2196c4" >Phone</label>
+  <div class="col-sm-10">
+    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{result.0.4}} ">
+  </div>
+</div>
+<div class="mb-3 row">
+  <label for="staticEmail" class="col-sm-2 col-form-label label-primary" style="color:#2196c4" >Email</label>
+  <div class="col-sm-10">
+    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{result.0.5}} ">
+  </div>
+</div>
+<!-- for doctor name -->
+<!-- <div class="mb-3 row">
+  <label for="staticEmail" class="col-sm-2 col-form-label label-primary" style="color:#2196c4" >Email</label>
+  <div class="col-sm-10">
+    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{dname}} ">
+  </div>
+</div> -->
+{% endif %}
+{% endblock %}

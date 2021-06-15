@@ -1,0 +1,28 @@
+{% extends "DOCPAT.html" %}
+  {% block body %}
+  <h4 class="display-3">Patient History</h4>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">paient_id</th>
+            <th scope="col">patient_name</th>
+            <th scope="col">Diagnosis</th>
+            <th scope="col">Allergies</th>
+            <th scope="col">Medicine</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            {% for x in data.rec %}
+            <tr>
+              <td>{{x.0}}</td>
+              <td>{{x.1}}</td>
+              <td>{{x.7}}</td>
+              <td>{{x.14}}</td>
+              <td>{{x.15}}</td>
+            </tr>
+            {% endfor %}
+          </tr>
+        </tbody>
+      </table>
+  {% endblock %}  

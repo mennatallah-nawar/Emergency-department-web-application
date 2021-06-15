@@ -1,0 +1,91 @@
+ <!doctype html>
+  <html lang="en">
+    <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="">
+      <meta name="author" content="">
+  
+      <!-- Bootstrap CSS -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+      <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'>
+      <link href='https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.6.95/css/materialdesignicons.css'>
+      
+      <link href="/static/bootstrap.min.css" rel="stylesheet">
+  
+    <!-- Custom styles for this template -->
+      <link href="/static/heroic-features.css" rel="stylesheet">
+      <title>Hello, world!</title>
+    </head>
+    <body style="background-image: url('/static/medical-background-dark.jpg'); background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;">
+  
+      <!-- Optional JavaScript; choose one of the two! -->
+  
+      <!-- Option 1: Bootstrap Bundle with Popper -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Operation Rooms Department</a>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{{url_for('index')}}">homepage</a>
+            </li>
+            
+        </ul>
+    </div>
+</nav>
+<div class="container">
+
+  <!-- Jumbotron Header -->
+  <header class="jumbotron my-4">
+  {% block body %}
+  <h4 class="display-3">Add surgery</h4>
+  <form action="{{url_for('DOCPAT')}}" method="POST">
+      <div class="form-group">
+        <label for="doc_ID" class="form-label">Doctor ID:</label>
+        <input type="int" class="form-control" id="doc_ID" name="doc_ID" >
+      </div>
+      <button type="submit" class="btn btn-primary">search</button>
+  </form>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">paient_name</th>
+            <th scope="col">patient_id</th>
+            <th scope="col">Blood Type</th>
+            <th scope="col">Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            {% for x in esm %}
+            <tr>
+              <td>{{x.0}}</td>
+              <td>{{x.1}}</td>
+              <td>{{x.2}}</td>
+              <td>{{x.3}}</td>
+            </tr>
+            {% endfor %}
+          </tr>
+        </tbody>
+      </table>
+  {% endblock %} 
+</header>
+<footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">we are proud that you are a part of our department</p>
+    </div>
+    <!-- /.container -->
+</footer>
+
+  <!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</div>
+</body>
+</html> 

@@ -1,0 +1,32 @@
+{% extends "DOCPAT.html" %}
+{% block body %}
+<h4 class="display-3">Add Complaint</h4>
+<form action="{{url_for('AddComplaints')}}" method="POST">
+    <div class="form-group">
+      <label for="USERID">User_ID</label>
+      <input name="userid" type="number" class="form-control" id="USERID" aria-describedby="emailHelp" required>
+    </div>
+    <div class="form-group">
+      <label for="cat">Catergory</label>
+      <input name= "category" type="text" class="form-control" id="cat" aria-describedby="emailHelp" required>
+    </div>
+    <div class="form-group">
+      <label for="com">Comment</label>
+      <input name="complaint" type="text" class="form-control" id="com"  required>
+    </div>
+   
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  {% if message%}
+      <div class="alert alert-success" role="alert">
+        {{ message }}
+      </div>
+    {% endif %}
+
+    {% if error%}
+      <div class="alert alert-danger" role="alert">
+        {{ error }}
+        </div>
+    {% endif %}
+{% endblock %}

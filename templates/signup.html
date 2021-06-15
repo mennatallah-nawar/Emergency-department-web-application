@@ -1,0 +1,39 @@
+{% extends "Home.html" %}
+{% block main %}
+<html> 
+	<head> 
+		<meta charset="UTF-8"> 
+		<title> Signup </title> 
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">			 
+	</head> 
+	<body></br></br></br></br></br> 
+		<div style="align-self: center;"> 
+		<div style="align-self: center;" class="border"> 
+			<div class="header"> 
+				<h1 class="word">Signup</h1> 
+			</div></br></br></br> 
+			<h2 class="word"> 
+			<form action="{{ url_for('signup') }}" method="POST"> 
+				<div class="msg">{{ msg }}</div> 
+                    
+                <input name="name" name="name" type="text" placeholder="Enter Your name" class="textbox" required /></br></br>
+                <input email="email" name="id" type="text" placeholder="Enter Your ID" class="textbox" required/></br></br>
+				<input password="number" name="password" type="password" placeholder="Enter Your Password" class="textbox" required/></br></br> 
+                <input type="type" name="type" type="text" placeholder="Enter type (dr,patient ,admin )" class="textbox" required/></br></br> 
+                <input email="email" name="email" type="text" placeholder="Enter Your Email ID" class="textbox" required/></br></br>
+				<input phone="phone" name="phone" type="number" placeholder="Enter Your phone" class="textbox" required/></br></br> 
+				<input age="age" name="age" type="text" placeholder="Enter Your age" class="textbox" required /></br></br>
+				<input gender="gender" name="gender" type="text" placeholder="gender male/female" class="textbox" required /></br></br>
+				<input bloodtype="bloodtype" name="bloodtype" type="text" placeholder="Enter Your blood type " class="textbox" required /></br></br>
+				<input allergy="allergy" name="allergy" type="text" placeholder="allergy yes/no" class="textbox" required /></br></br>
+                <button type="submit" class="btn btn-primary">signup</button>
+			</form> 
+			</h2> 
+			<p class="bottom">Already have an account? <a class="bottom" href="{{url_for('signin')}}"> Sign In here</a></p> 
+			<p class="bottom"> <a class="bottom" href="{{url_for('index')}}"> Bach to home</a></p> 
+
+		</div> 
+		</div> 
+	</body> 
+</html>
+{% endblock %}
